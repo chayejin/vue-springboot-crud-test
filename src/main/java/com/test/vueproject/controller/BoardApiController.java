@@ -4,6 +4,7 @@ import com.test.vueproject.domain.Board.Board;
 import com.test.vueproject.domain.Board.BoardRepository;
 import com.test.vueproject.dto.BoardDto;
 import com.test.vueproject.service.BoardService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +16,10 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api")
 public class BoardApiController {
 
-    @Autowired
     private BoardService boardService;
 
     @GetMapping("/boards")
@@ -49,8 +50,7 @@ public class BoardApiController {
     @PostMapping("/boards")
     public ResponseEntity<BoardDto> createBoard(@RequestBody BoardDto boardDto) {
         try {
-            BoardDto board = boardService
-                    .boardCreateRequest(boardDto);
+            BoardDto board = boardService.boardCreateRequest(boardDto);
             return new ResponseEntity<>(board, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

@@ -1,14 +1,14 @@
 package com.test.vueproject.dto;
 
 import com.test.vueproject.domain.Board.Board;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 
+
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BoardDto {
 
     private Long id;
