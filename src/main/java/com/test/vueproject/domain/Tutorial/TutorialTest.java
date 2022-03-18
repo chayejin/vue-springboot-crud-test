@@ -1,16 +1,14 @@
-package com.test.vueproject.domain.Board;
+package com.test.vueproject.domain.Tutorial;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Board {
+@Setter
+public class TutorialTest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,9 +24,10 @@ public class Board {
     private boolean published;
 
     @Builder
-    public Board(String title, String description, boolean published) {
+    public TutorialTest(String title, String description, boolean published) {
         this.title = title;
         this.description = description;
         this.published = published;
     }
+
 }
